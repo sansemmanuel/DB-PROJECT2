@@ -1,1 +1,20 @@
+CREATE TABLE netflix (
+    n_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    title TEXT,
+    director TEXT,
+    cast TEXT,
+    country TEXT,
+    date_added DATETIME,
+    release_year INTEGER,
+    rating TEXT,
+    duration TEXT,
+    listed_in TEXT,
+    description TEXT
+)
 
+
+REPLACE INTO netflix('type','title','director','cast','country','date_added','release_year','rating','duration','listed_in','description')
+SELECT type,title,director,cast,country,date_added,release_year,rating,duration,listed_in,description 
+FROM tabla_tmp
+WHERE show_id IS NULL;
